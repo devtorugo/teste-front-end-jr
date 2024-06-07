@@ -5,12 +5,12 @@
   }
   
   .card2 {
-    width: calc(30% + 200px); /* Reduzindo ainda mais a largura dos cards */
-    height: 280px; /* Reduzindo a altura dos cards */
-    background-image: url('/mask.png'); /* Substitua '/mask.png' pelo caminho da sua imagem de fundo */
+    width: calc(30% + 200px); 
+    height: 280px; 
+    background-image: url('/mask.png'); 
     background-size: cover;
     background-position: center;
-    border-radius: 20px; /* Aumentando o raio do arredondamento das bordas */
+    border-radius: 20px; 
     overflow: hidden;
     color: #fff;
     margin-top: 30px;
