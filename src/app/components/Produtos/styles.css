@@ -1,0 +1,171 @@
+.produtos-container {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
+.produtos-container h2 {
+    color: #f71963;
+    margin-top: 30px;
+}
+
+.categorias {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.categoria {
+    width: calc(16.980% - 5px);
+    padding: 5px;
+    background-color: white;
+    border: 1px solid #ddd;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    line-height: 1.4;
+    position: relative;
+}
+
+.categoria:not(:last-child):after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.categoria:nth-child(1) {
+    background-color: #ffffff;
+    color: #f71963;
+    font-weight: bold;
+}
+
+.produtos-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.card {
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-right: 20px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.card img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.card p {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+.preco {
+    text-decoration: line-through;
+    color: #555;
+}
+
+.preco-desconto {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.frete-parcelas {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.frete-gratis {
+    font-size: 0.9em;
+    color: #f71963;
+    margin-top: 5px;
+}
+
+.parcelas {
+    margin-top: 5px;
+}
+
+button {
+    padding: 12px 24px;
+    background-color: #f71963;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+}
+
+.modal-img {
+    max-width: 100%; 
+    margin-right: 20px;
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-info h3 {
+    margin-bottom: 10px;
+}
+
+.modal-info p {
+    margin-bottom: 10px;
+}
+
+.modal-info .preco {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.modal-info .quantidade {
+    margin-bottom: 10px;
+}
+
+.modal-info .quantidade label {
+    margin-right: 10px;
+}
+
+.modal-info button {
+    padding: 12px 24px;
+    background-color: #f71963;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}

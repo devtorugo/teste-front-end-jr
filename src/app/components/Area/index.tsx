@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css"; // Importando o arquivo de estilos
+import "./styles.css"; 
 
 const Area = () => {
   return (
