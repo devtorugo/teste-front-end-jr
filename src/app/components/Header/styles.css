@@ -12,7 +12,8 @@
   padding-bottom: 5px;
   font-size: 12px;
   margin-top: 20px;
-  color: red;
+  color: #ccc;
+  font-weight: bold;
 }
 
 .info-item {
@@ -106,7 +107,7 @@
 }
 
 .offer {
-  color: red;
+  color: #F71963;
 }
 
 .subscription {
@@ -117,4 +118,40 @@
 .subscription-icon {
   height: 18px;
   margin-right: 5px;
+}
+
+/* Media queries para responsividade */
+
+@media only screen and (max-width: 768px) {
+  .header-top {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .logo {
+    margin-right: 0;
+    border-right: none;
+    padding-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .search-container {
+    margin: 10px 0;
+  }
+
+  .navigation {
+    padding: 10px;
+  }
+
+  .icons::before {
+    display: none;
+  }
+
+  .info-item:not(:last-child) {
+    margin-right: 20px;
+  }
+
+  .subscription {
+    margin-top: 10px;
+  }
 }
