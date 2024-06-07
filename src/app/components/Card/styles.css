@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .card2 {
+    width: calc(30% + 200px); /* Reduzindo ainda mais a largura dos cards */
+    height: 280px; /* Reduzindo a altura dos cards */
+    background-image: url('/mask.png'); /* Substitua '/mask.png' pelo caminho da sua imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px; /* Aumentando o raio do arredondamento das bordas */
+    overflow: hidden;
+    color: #fff;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .buttoncard {
+    padding: 10px 20px;
+    background-color: #F71963; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+  
