@@ -4,6 +4,7 @@ import Area from "./components/Area";
 import Produtos from "./components/Produtos";
 import Card from "./components/Card";
 import CardProdutos from "./components/CardProdutos";
+import Navegacao from "./components/Navegacao";
 
 
 
@@ -16,6 +17,7 @@ export default function Home() {
      <Produtos />
      <Card />
      <CardProdutos />
+     <Navegacao />
     </main>
   );
 }
