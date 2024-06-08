@@ -14,7 +14,7 @@ git clone https://github.com/seu-usuario/projeto-produtos.git
 
 2. Navegue até o diretório do projeto:
 
-cd projeto-produtos
+cd testefrontendjr
 
 
 3. Instale as dependências do projeto:
@@ -32,10 +32,10 @@ npm run build
 
 - Iniciar o servidor de desenvolvimento:
 
-npm start
+npm run dev
 
 
-Acesse o aplicativo em seu navegador através do endereço [http://localhost:3000](http://localhost:3000).
+Acesse o site em seu navegador através do endereço [http://localhost:3000](http://localhost:3000).
 
 
 
