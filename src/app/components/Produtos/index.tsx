@@ -1,7 +1,46 @@
-import React from 'react';
-import './styles.css'; 
+'use client'
+import React, { useState, useEffect } from 'react';
+import './styles.css';
 
 const Produtos = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [quantidade, setQuantidade] = useState(1);
+  const [selectedProductIndex, setSelectedProductIndex] = useState(null);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('/teste-front-end/junior/tecnologia/lista-produtos/produtos.json');
+        const data = await response.json();
+        setProducts(data.products);
+      } catch (error) {
+        console.error('Erro ao obter produtos:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const openModal = (index) => {
+    setSelectedProductIndex(index);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const incrementQuantity = () => {
+    setQuantidade(quantidade + 1);
+  };
+
+  const decrementQuantity = () => {
+    if (quantidade > 1) {
+      setQuantidade(quantidade - 1);
+    }
+  };
+
   return (
     <div className="produtos-container">
       <h2>Produtos relacionados</h2>
@@ -14,51 +53,33 @@ const Produtos = () => {
         <div className="categoria">Ver todos</div>
       </div>
       <div className="produtos-carousel">
-        <div className="card">
-          <img src="./iphone.png" alt="Celular" />
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-          <p className="preco">R$ 999,00</p>
-          <p className="preco-desconto">R$ 799,00</p>
-          <div className="frete-parcelas">
-            <p className="parcelas">2x de R$ 49,95 sem juros</p>
-            <p className="frete-gratis">Frete Grátis</p>
+        {products.map((product, index) => (
+          <div className="card" key={index}>
+            <img src={product.photo} alt={product.productName} />
+            <p>{product.descriptionShort}</p>
+            <p className="preco">R$ {product.price}</p>
+            <button onClick={() => openModal(index)}>Comprar</button>
           </div>
-          <button>Comprar</button>
-        </div>
-        <div className="card">
-          <img src="./iphone.png" alt="Acessórios" />
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-          <p className="preco">R$ 199,00</p>
-          <p className="preco-desconto">R$ 159,00</p>
-          <div className="frete-parcelas">
-            <p className="parcelas">2x de R$ 49,95 sem juros</p>
-            <p className="frete-gratis">Frete Grátis</p>
-          </div>
-          <button>Comprar</button>
-        </div>
-        <div className="card">
-          <img src="./iphone.png" alt="Tablets" />
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-          <p className="preco">R$ 1499,00</p>
-          <p className="preco-desconto">R$ 1299,00</p>
-          <div className="frete-parcelas">
-            <p className="parcelas">2x de R$ 49,95 sem juros</p>
-            <p className="frete-gratis">Frete Grátis</p>
-          </div>
-          <button>Comprar</button>
-        </div>
-        <div className="card">
-          <img src="./iphone.png" alt="Notebooks" />
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-          <p className="preco">R$ 2999,00</p>
-          <p className="preco-desconto">R$ 2499,00</p>
-          <div className="frete-parcelas">
-            <p className="parcelas">2x de R$ 49,95 sem juros</p>
-            <p className="frete-gratis">Frete Grátis</p>
-          </div>
-          <button>Comprar</button>
-        </div>
+        ))}
       </div>
+      {modalOpen && (
+        <div className="modal">
+          <div className="modal-content">
+            <span className="close" onClick={closeModal}>&times;</span>
+            <img src={products[selectedProductIndex].photo} alt={products[selectedProductIndex].productName} />
+            <div className="modal-info">
+              <h3>{products[selectedProductIndex].productName}</h3>
+              <p className="modal-price">R$ {products[selectedProductIndex].price}</p>
+              <div className="quantidade-buttons">
+                <button onClick={decrementQuantity}>-</button>
+                <span>{quantidade}</span>
+                <button onClick={incrementQuantity}>+</button>
+              </div>
+              <button className="buy-button">Comprar</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
